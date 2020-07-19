@@ -77,13 +77,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="qq" target="_blank" href="/1078410321" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="weixin" target="_blank" href="/ck1078410321" title="weixin"><i class="icon-weixin"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="/zed.chenkai@outlook.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -118,13 +118,13 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="qq" target="_blank" href="/1078410321" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="weixin" target="_blank" href="/ck1078410321" title="weixin"><i class="icon-weixin"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="/zed.chenkai@outlook.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -151,6 +151,141 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/19/webpack/">webpack</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/19/webpack/" class="archive-article-date">
+  	<time datetime="2020-07-19T05:00:52.234Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><ul>
+<li><p>npm init -y  生成项目下的package.json  目录不能有中文，大写字母，特殊符号</p>
+</li>
+<li><p>npm i webpack webpack-cli –save-dev  工程目录名不能是webpack</p>
+</li>
+<li><p>零配置的使用</p>
+<ul>
+<li>webpack默认把当前项目src目录下的文件打包编译(默认编译的文件名是index.js)到dist目录下（webpack编译代码的过程支持CommOnJS规范和ES6Module规范）</li>
+<li>src    <ul>
+<li>当前项目开发的源代码</li>
+</ul>
+</li>
+<li>dist<ul>
+<li>编译后的文件(部署到服务器的)</li>
+</ul>
+</li>
+<li>npm run serve(配置可执行的脚本命令 package.json文件中的 “scripts”项配置”serve”:”webpack”)/npx webpack</li>
+</ul>
+</li>
+<li><p>自定义配置</p>
+<ul>
+<li>编写自定义的webpack配置项，以后webpack打包编译的时候是按照自己配置的内容进行打包编译处理(该文件放在项目的根目录下)<ul>
+<li>文件名： webpack.config.js / webpackfile.js</li>
+</ul>
+</li>
+<li>1、webpack本身是基于Node开发，所以配置项的模块处理规则参考CommonJS规范来完成</li>
+</ul>
+</li>
+<li><p>插件</p>
+<ul>
+<li>npm i html-webpack-plugin clean-webpack-plugin webpack-dev-server –save-dev</li>
+</ul>
+</li>
+<li><p>在模板中可以自己单独引入一些CSS/JS/图片等资源文件</p>
+</li>
+<li><p>1、自己导入的文件不会受webpack编译的影响(不会和其他模块的文件编译在一起)，所以有时候我们会单独导入一些公共的资源文件</p>
+</li>
+<li><p>2、有些资源类库不支持CommonJS规范，也不支持ES6Moudle规范，这样的资源文件只能在模板中手动导入，webpack无法处理</p>
+</li>
+<li><p>加载器</p>
+<ul>
+<li>css-loader style-loader less less-loader autoprefixer postcss-loader</li>
+<li>mini-css-extract-plugin -D  //抽离CSS内容</li>
+</ul>
+</li>
+</ul>
+<p>-在package.json里配置兼容的浏览器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="string">"browserlist"</span>: [</span><br><span class="line">  <span class="string">"&gt; 1%"</span>,</span><br><span class="line">  <span class="string">"last 2 versions"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>设置优化项压缩CSS/JS</p>
+<ul>
+<li>npm install optimize-css-assets-webpack-plugin uglifyjs-webpack-plugin terser-webpack-plugin –save-dev</li>
+</ul>
+</li>
+<li><p>webpack中图片的处理    </p>
+<ul>
+<li>npm install file-loader url-loader html-withimg-loader –save-dev<br>JS动态创建图片<br>1、如果地址是一个外网的绝对地址，直接使用即可(编译后地址还是外网地址)<br>2、如果需要设置的是相对地址，则需要基于require把图片导入进来在使用，否则编译后地址找不到</li>
+</ul>
+</li>
+<li><p>babel (默认情况下，webpack只是把各板块的代码合并压缩，对于JS并没有做其他的处理，如果代码需要兼容一些低版本浏览器，我们写的ES6代码都需要处理兼容，将其转换为ES5代码)   @babel/polyfill在代码运行的时候，把一些ES7等特殊语法进行兼容处理</p>
+<pre><code>- 1、需要安装在生产环境下，上线代码运行时也是需要的
+    - @babel/runtime
+    - @babel/polyfill
+- 2、需要一个插件的支持
+    - @babel/plugin-transform-runtime</code></pre><ul>
+<li>npm install babel-loader @babel/core @babel/preset-env -D</li>
+<li>npm install @babel/preset-env @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/plugin-transform-runtime –D</li>
+<li>npm install @babel/polyfill @babel/runtime (生产环境)</li>
+<li>npm install eslint eslint-loader -D (词法检测)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> HtmltWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">    CleanWebpackPlugin</span><br><span class="line">&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> MiniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">'mini-css-extract-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> TerserPlugin = <span class="built_in">require</span>(<span class="string">'terser-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> OptimizeCssAssetWebpackPlugin = <span class="built_in">require</span>(<span class="string">'optimize-css-assets-webpack-plugin'</span>)</span><br><span class="line"><span class="comment">//配置多页面模板</span></span><br><span class="line"><span class="keyword">const</span> htmlPlugins = [<span class="string">'index'</span>, <span class="string">'login'</span>].map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HtmltWebpackPlugin(&#123;</span><br><span class="line">        <span class="comment">//模板路径</span></span><br><span class="line">        template: <span class="string">`./public/<span class="subst">$&#123;item&#125;</span>.html`</span>,</span><br><span class="line">        <span class="comment">//编译后生成的文件名</span></span><br><span class="line">        filename: <span class="string">`<span class="subst">$&#123;item&#125;</span>.html`</span>,</span><br><span class="line">        chunks: [item],</span><br><span class="line">        <span class="comment">//是否把编译的资源文件导入到页面中，设置HASH值(清除强缓存，和OUTPUT设置HASH值是一样的)</span></span><br><span class="line">        hash: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">//把模板中的HTML代码也进行压缩编译(配置规则)</span></span><br><span class="line">        <span class="comment">// minify: &#123;</span></span><br><span class="line">        <span class="comment">//     collapseWhitespace: true, //去除空格</span></span><br><span class="line">        <span class="comment">//     removeComments: true, //去除注释</span></span><br><span class="line">        <span class="comment">//     removeAttributeQuotes: true, //去除属性引号</span></span><br><span class="line">        <span class="comment">//     removeEmptyAttributes: true, //去除空属性</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">//设置编译的模式 development/production(默认)</span></span><br><span class="line">    mode: <span class="string">'production'</span>,</span><br><span class="line">    <span class="comment">//设置编译的入口文件(一般开发代码都放置在src下)</span></span><br><span class="line">    <span class="comment">// entry: './src/main.js',</span></span><br><span class="line">    <span class="comment">//多入口</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        index: <span class="string">'./src/main.js'</span>,</span><br><span class="line">        login: <span class="string">'./src/login.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//设置编译的出口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        <span class="comment">//编译后的文件名   [hash]编译的时候会随机在名字中生成唯一哈希值，以此保证每一次编译出来的文件是不一样的</span></span><br><span class="line">        <span class="comment">//[name] 多入口配置的属性名 index/login</span></span><br><span class="line">        filename: <span class="string">'[name].min.js'</span>,</span><br><span class="line">        <span class="comment">//输出的目录(需要绝对路径)</span></span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'build'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//配置DEV-SERVER</span></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        <span class="comment">//WEB服务端口号</span></span><br><span class="line">        port: <span class="number">3000</span>, <span class="comment">//端口</span></span><br><span class="line">        compress: <span class="literal">true</span>, <span class="comment">//开启GZIP压缩</span></span><br><span class="line">        <span class="comment">// progress: true,//显示编译进度</span></span><br><span class="line">        contentBase: path.resolve(__dirname, <span class="string">"build"</span>), <span class="comment">//指定访问资源目录</span></span><br><span class="line">        open: <span class="literal">true</span>, <span class="comment">//自动打开浏览器</span></span><br><span class="line">        hot: <span class="literal">true</span>, <span class="comment">//是否开启热更新</span></span><br><span class="line">        <span class="comment">// proxy:&#123;</span></span><br><span class="line">        <span class="comment">//     "/":&#123;</span></span><br><span class="line">        <span class="comment">//         target:"http://localhost:8888",</span></span><br><span class="line">        <span class="comment">//         secure:false, //若为true则标识是https,false是http</span></span><br><span class="line">        <span class="comment">//         changeOrigin:true//把请求头当中的host值改为服务器地址</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">//   &#125;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//配置webpack的优化项</span></span><br><span class="line">    optimization: &#123;</span><br><span class="line">        minimizer: [</span><br><span class="line">            <span class="keyword">new</span> OptimizeCssAssetWebpackPlugin(),</span><br><span class="line">            <span class="keyword">new</span> TerserPlugin()</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//配置webpack的插件</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="comment">//配置指定的HTML页面模板</span></span><br><span class="line">        ...htmlPlugins,</span><br><span class="line">        <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">        <span class="comment">//抽离CSS到单独文件</span></span><br><span class="line">        <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">            filename: <span class="string">'[name].[hash].min.css'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">//配置webpack的加载器LOADER</span></span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">//设置规则和处理方案 默认执行顺序，从右到左，从下到上</span></span><br><span class="line">        rules: [&#123;</span><br><span class="line">            <span class="comment">//匹配哪些文件基于正则处理(此处是处理CSS/LESS文件)</span></span><br><span class="line">            test: <span class="regexp">/\.(css|less)$/i</span>,</span><br><span class="line">            use: [</span><br><span class="line">                <span class="comment">// "style-loader",//把处理好的CSS插入到页面中(内嵌式)</span></span><br><span class="line">                MiniCssExtractPlugin.loader,</span><br><span class="line">                <span class="string">"css-loader"</span>, <span class="comment">//处理@import/URL这种语法</span></span><br><span class="line">                <span class="string">"postcss-loader"</span>, <span class="comment">//设置css前缀（处理兼容 需要搭配autoprefixer一起使用，需要额外再配置一些信息）</span></span><br><span class="line">                <span class="string">"less-loader"</span> <span class="comment">//把less编译为css</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="comment">//指定哪些目录下的CSS我们才处理</span></span><br><span class="line">            include: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">            <span class="comment">//忽略哪些目录下的CSS我们不处理</span></span><br><span class="line">            exclude: <span class="regexp">/node_modules/</span></span><br><span class="line"></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            <span class="comment">//图片处理</span></span><br><span class="line">            test: <span class="regexp">/\.(png|jpe?g|gif|ico|bmp)$/i</span>,</span><br><span class="line">            use: [&#123;</span><br><span class="line">                <span class="comment">//url-loader在编译的时候，会把符合条件的图片进行BASE64，对于不符合条件的还是继续使用file-loader处理</span></span><br><span class="line">                loader: <span class="string">"url-loader"</span>,</span><br><span class="line">                options: &#123;</span><br><span class="line">                    limit: <span class="number">200</span>*<span class="number">1024</span>,</span><br><span class="line">                    <span class="comment">// outputPath: '/images',  //在编译的时候，把图片都放在统一的images文件下</span></span><br><span class="line">                    name: <span class="string">'images/[name].[hash].[ext]'</span>,</span><br><span class="line">                    esModule: <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;],</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            <span class="comment">//字体图标处理 编译图片加载器</span></span><br><span class="line">            test: <span class="regexp">/\.(svg|eot|ttf|woff|woff2)$/i</span>,</span><br><span class="line">            use: [&#123;</span><br><span class="line">                loader: <span class="string">"file-loader"</span>,</span><br><span class="line">                options:&#123;</span><br><span class="line">                    name: <span class="string">'images/[name].[hash].[ext]'</span>,</span><br><span class="line">                    outputPath: <span class="string">'/images'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            <span class="comment">//编译html页面中的图片，把其按照上述图片的处理机制处理</span></span><br><span class="line">            test: <span class="regexp">/\.html$/</span>,</span><br><span class="line">            use: [<span class="string">'html-withimg-loader'</span>]</span><br><span class="line">        &#125;,&#123;</span><br><span class="line">            test:<span class="regexp">/\.js$/i</span>,</span><br><span class="line">            use:[&#123;</span><br><span class="line">                loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                options:&#123;</span><br><span class="line">                    presets:[</span><br><span class="line">                        <span class="comment">//把ES6转为ES5</span></span><br><span class="line">                        <span class="string">"@babel/preset-env"</span></span><br><span class="line">                    ],</span><br><span class="line">                    <span class="comment">//基于插件处理ES6/ES7中CLASS的特殊语法</span></span><br><span class="line">                    plugins: [</span><br><span class="line">                        <span class="comment">//类的装饰器</span></span><br><span class="line">                        [<span class="string">"@babel/plugin-proposal-decorators"</span>,&#123;</span><br><span class="line">                            <span class="string">"legacy"</span>: <span class="literal">true</span></span><br><span class="line">                        &#125;],</span><br><span class="line">                        <span class="comment">//类中设置属性</span></span><br><span class="line">                        [<span class="string">"@babel/plugin-proposal-class-properties"</span>,&#123;</span><br><span class="line">                            <span class="string">"loose"</span>: <span class="literal">true</span></span><br><span class="line">                        &#125;],</span><br><span class="line">                        <span class="string">"@babel/plugin-transform-runtime"</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;],<span class="comment">//,"eslint-loader" 开启词法检测</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/19/webpack/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-正则学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
