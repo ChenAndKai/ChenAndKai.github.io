@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Zed的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Zed的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Zed的博客">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Zed Chen">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Zed的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -77,7 +77,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/ChenAndKai" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="qq" target="_blank" href="/1078410321" title="qq"><i class="icon-qq"></i></a>
 		        
@@ -118,7 +118,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/ChenAndKai" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="qq" target="_blank" href="/1078410321" title="qq"><i class="icon-qq"></i></a>
 			        
@@ -179,55 +179,82 @@
 <li>Verdaccio:<a href="https://verdaccio.org/" target="_blank" rel="noopener">地址</a>  (基于Sinopia)</li>
 <li>cnpm: <a href="https://cnpmjs.org/" target="_blank" rel="noopener">地址</a></li>
 </ul>
-<h5 id="2、本文选择Verdaccio"><a href="#2、本文选择Verdaccio" class="headerlink" title="2、本文选择Verdaccio"></a>2、本文选择Verdaccio</h5><h6 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h6><p>1、node版本应当 <strong>10.x</strong> 及以上<br>::: alert-warning<br>Node版本4.5.0之后，js v10现在是最小支持版本，如果您不能升级Node.js v8.请继续使用v4.4.4<br>:::<br>2、npm &gt;= 5 或者 pnpm 或者 yarn<br>::: alert-warning<br>官方强烈推荐使用最新的节点包管理器客服端   &gt;<a href="mailto:npm@6.x">npm@6.x</a> | <a href="mailto:yarn@1.x">yarn@1.x</a> | <a href="mailto:pnpm@4.x">pnpm@4.x</a><br>:::<br>3、web界面支持 Chrome、Firefox、Edge和IE11浏览器<br>::: alert-warning<br>Verdaccio将根据节点支持最新的Node.js版本<br>:::</p>
-<h6 id="安装CLI"><a href="#安装CLI" class="headerlink" title="安装CLI"></a>安装CLI</h6><p>Verdaccio必须使用以下任何一种方法在全局安装：<br>::: alert-dark<br>npm install -g verdaccio<br>:::<br>or using <strong>yarn</strong><br>::: alert-dark<br>yarn global add verdaccio<br>:::</p>
+<h5 id="2、本文选择Verdaccio"><a href="#2、本文选择Verdaccio" class="headerlink" title="2、本文选择Verdaccio"></a>2、本文选择Verdaccio</h5><h6 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h6><p>1、node版本应当 <strong>10.x</strong> 及以上</p>
+<blockquote>
+<p><strong>Node版本4.5.0之后，js v10现在是最小支持版本，如果您不能升级Node.js v8.请继续使用v4.4.4</strong></p>
+</blockquote>
+<p>2、npm &gt;= 5 或者 pnpm 或者 yarn</p>
+<blockquote>
+<p><strong>官方强烈推荐使用最新的节点包管理器客服端   &gt;<a href="mailto:npm@6.x">npm@6.x</a> | <a href="mailto:yarn@1.x">yarn@1.x</a> | <a href="mailto:pnpm@4.x">pnpm@4.x</a></strong></p>
+</blockquote>
+<p>3、web界面支持 Chrome、Firefox、Edge和IE11浏览器</p>
+<blockquote>
+<p><strong>Verdaccio将根据节点支持最新的Node.js版本</strong></p>
+</blockquote>
+<h6 id="安装CLI"><a href="#安装CLI" class="headerlink" title="安装CLI"></a>安装CLI</h6><p>Verdaccio必须使用以下任何一种方法在全局安装：</p>
+<blockquote>
+<p><strong><code>npm install -g verdaccio</code></strong></p>
+</blockquote>
+<p>or using <strong>yarn</strong></p>
+<blockquote>
+<p><strong><code>yarn global add verdaccio</code></strong></p>
+</blockquote>
 <h6 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h6><ul>
-<li>安装成功后，只需执行CLI命令      <strong>verdaccio</strong><br>:::alert-info<br>若此时提示verdaccioc不是外部命令，则需要配置环境变量，<br>我用的是yarn安装，故在yarn的安装目录下找到verdaccio,并将verdaccio的bin目录添加在path里<br>:::</li>
+<li>安装成功后，只需执行CLI命令      <strong><code>verdaccio</code></strong><blockquote>
+<p><strong>若此时提示verdaccioc不是外部命令，则需要配置环境变量，</strong><br><strong>我用的是yarn安装，故在yarn的安装目录下找到verdaccio,并将verdaccio的bin目录添加在path里</strong></p>
+</blockquote>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723072112.jpg" alt=""></p>
 <ul>
 <li><p>安装成功<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723070438.jpg" alt=""></p>
 </li>
-<li><p>配置<br>若只想将包发布到私有，则可以修改下面的 <strong>verdaccio\config.yaml</strong>中的    ‘@*/*‘    ,可以将 * 改成公司名 (修改配置文件，需要再次运行verdaccio)<br>:::alert-info<br>packages:<br>‘@*/*‘:</p>
-<h1 id="scoped-packages"><a href="#scoped-packages" class="headerlink" title="scoped packages"></a>scoped packages</h1><p>  access: $all<br>  publish: $authenticated<br>  unpublish: $authenticated<br>  proxy: npmjs<br>:::</p>
+<li><p>配置<br>若只想将包发布到私有，则可以修改下面的 <strong>verdaccio\config.yaml</strong>中的    ‘@*/*‘    ,可以将 * 改成公司名 (修改配置文件，需要再次运行verdaccio)</p>
+<blockquote>
+<p><strong>packages:</strong><br><strong>‘@*/*‘:</strong></p>
+</blockquote>
 </li>
-<li><p>安装nrm<br>:::alert-info<br>npm i -g nrm<br>:::</p>
+<li><p>安装nrm</p>
+<blockquote>
+<p><code>npm i -g nrm</code></p>
+</blockquote>
 </li>
-<li><p>nrm ls查看源列表</p>
+<li><p><strong><code>nrm ls</code></strong> 查看源列表</p>
 </li>
-<li><p>nrm add 源名称 源地址<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224016.png" alt=""></p>
+<li><p><strong><code>nrm add</code></strong> 源名称 源地址<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224016.png" alt=""></p>
 </li>
-<li><p>添加成功后，再次执行<strong>nrm ls</strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224151.png" alt=""></p>
+<li><p>添加成功后，再次执行<strong><code>nrm ls</code></strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224151.png" alt=""></p>
 </li>
 <li><p>登录  在这之前一定要保证此时的npm源指向我们的私有仓库 使用nrm即可完成切换<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224439.png" alt=""></p>
 </li>
-<li><p>添加用户<br>:::alert-info<br>npm addUser （npm adduser –registry==<a href="http://IP:port）">http://IP:port）</a><br>:::</p>
+<li><p>添加用户</p>
+<blockquote>
+<p><strong><code>npm addUser （npm adduser --registry==http://IP:port）</code></strong></p>
+</blockquote>
+</li>
+<li><p>发布包</p>
+<blockquote>
+<p><strong><code>npm publish</code></strong></p>
+</blockquote>
 </li>
 </ul>
-<p>-发布包<br>:::alert-info<br>npm publish<br>:::</p>
 <p><strong>pm2是node进程管理工具，可以用它来简化很多node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。关于pm2的内容这里不做过多介绍，大家可以去官网或者其他博客查看了解，后文会附上pm2的常用命令。</strong></p>
-<p>-安装pm2<br>:::alert-info<br>npm i -g pm2<br>:::</p>
 <ul>
-<li>pm2 list<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063705.png" alt=""></li>
-<li>pm2 start verdaccio<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063746.png" alt=""></li>
+<li>安装pm2</li>
 </ul>
-<p>-pm2常用命令<br>:::alert-info<br>$ npm install pm2 -g    # 命令行安装 pm2</p>
-<p>$ pm2 start app.js -i 4  # 后台运行pm2，启动4个app.js</p>
-<pre><code># 也可以把&apos;max&apos; 参数传递给 start
+<p><strong><code>npm i -g pm2</code></strong></p>
+<ul>
+<li><p><strong><code>pm2 list</code></strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063705.png" alt=""></p>
+</li>
+<li><p><strong><code>pm2 start verdaccio</code></strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063746.png" alt=""></p>
+</li>
+<li><p>pm2常用命令</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ npm install pm2 -g    # 命令行安装 pm2</span><br><span class="line"></span><br><span class="line">$ pm2 <span class="built_in">start</span> app.js -i <span class="number">4</span>  # 后台运行pm2，启动<span class="number">4</span>个app.js</span><br><span class="line"></span><br><span class="line">    # 也可以把'max' 参数传递给 <span class="built_in">start</span></span><br><span class="line"></span><br><span class="line">    # 正确的进程数目依赖于Cpu的核心数目</span><br><span class="line"></span><br><span class="line">$ pm2 <span class="built_in">start</span> app.js --name my-api # 命名进程</span><br><span class="line"></span><br><span class="line">$ pm2 list              # 显示所有进程状态</span><br><span class="line"></span><br><span class="line">$ pm2 monit              # 监视所有进程</span><br><span class="line"></span><br><span class="line">$ pm2 logs              # 显示所有进程日志</span><br><span class="line"></span><br><span class="line">$ pm2 stop all          # 停止所有进程</span><br><span class="line"></span><br><span class="line">$ pm2 restart all        # 重启所有进程</span><br><span class="line"></span><br><span class="line">$ pm2 reload all        # <span class="number">0</span> 秒停机重载进程 (用于 NETWORKED 进程)</span><br><span class="line"></span><br><span class="line">$ pm2 stop <span class="number">0</span>            # 停止指定的进程</span><br><span class="line"></span><br><span class="line">$ pm2 restart <span class="number">0</span>          # 重启指定的进程</span><br><span class="line"></span><br><span class="line">$ pm2 startup            # 产生 init 脚本 保持进程活着</span><br><span class="line"></span><br><span class="line">$ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:<span class="number">9615</span>)</span><br><span class="line"></span><br><span class="line">$ pm2 delete <span class="number">0</span>          # 杀死指定的进程</span><br><span class="line"></span><br><span class="line">$ pm2 delete all        # 杀死全部进程</span><br></pre></td></tr></table></figure>
 
-# 正确的进程数目依赖于Cpu的核心数目</code></pre><p>$ pm2 start app.js –name my-api # 命名进程</p>
-<p>$ pm2 list              # 显示所有进程状态</p>
-<p>$ pm2 monit              # 监视所有进程</p>
-<p>$ pm2 logs              # 显示所有进程日志</p>
-<p>$ pm2 stop all          # 停止所有进程</p>
-<p>$ pm2 restart all        # 重启所有进程</p>
-<p>$ pm2 reload all        # 0 秒停机重载进程 (用于 NETWORKED 进程)</p>
-<p>$ pm2 stop 0            # 停止指定的进程</p>
-<p>$ pm2 restart 0          # 重启指定的进程</p>
-<p>$ pm2 startup            # 产生 init 脚本 保持进程活着</p>
-<p>$ pm2 web                # 运行健壮的 computer API endpoint (<a href="http://localhost:9615" target="_blank" rel="noopener">http://localhost:9615</a>)</p>
-<p>$ pm2 delete 0          # 杀死指定的进程</p>
-<p>$ pm2 delete all        # 杀死全部进程<br>:::</p>
+
+
+</li>
+</ul>
 
       
 
@@ -290,7 +317,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><ul>
+        <ul>
 <li><p>npm init -y  生成项目下的package.json  目录不能有中文，大写字母，特殊符号</p>
 </li>
 <li><p>npm i webpack webpack-cli –save-dev  工程目录名不能是webpack</p>
@@ -425,7 +452,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="正则学习及常用案例"><a href="#正则学习及常用案例" class="headerlink" title="正则学习及常用案例"></a>正则学习及常用案例</h1><blockquote>
+        <blockquote>
 <p>只能处理字符串<br>它是一个规则：可以验证字符串是否符合某个规则(<strong>test</strong>),也可以把字符串中符合规则的内容捕获到(<strong>exec/match</strong>)</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"good good study,day day up!"</span>;</span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+/</span>;  <span class="comment">//\d:任何一个0~9的数，+：左边的数字出现1到多次</span></span><br><span class="line">reg.test(str);    <span class="comment">//=&gt;false   用来验证当前字符串是否存在数字</span></span><br></pre></td></tr></table></figure>
@@ -652,7 +679,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="利用hexo搭建个人博客"><a href="#利用hexo搭建个人博客" class="headerlink" title="利用hexo搭建个人博客"></a>利用hexo搭建个人博客</h1><h4 id="在本低安装hexo"><a href="#在本低安装hexo" class="headerlink" title="在本低安装hexo"></a>在本低安装hexo</h4><ul>
+        <h4 id="在本低安装hexo"><a href="#在本低安装hexo" class="headerlink" title="在本低安装hexo"></a>在本低安装hexo</h4><ul>
 <li><p>1、先需要安装node.js (node -v查看是否安装成功)</p>
 </li>
 <li><p>2、安装淘宝镜像</p>
