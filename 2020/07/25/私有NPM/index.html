@@ -6,15 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | Zed的博客</title>
+  <title>私有NPM | Zed的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zed的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
+  <meta name="description" content="1、私有Npm方法npm官网：官网链接  Npm付费服务 Sinopia:地址 （不再维护） Verdaccio:地址  (基于Sinopia) cnpm: 地址  2、本文选择Verdaccio前期准备1、node版本应当 10.x 及以上  Node版本4.5.0之后，js v10现在是最小支持版本，如果您不能升级Node.js v8.请继续使用v4.4.4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="私有NPM">
+<meta property="og:url" content="http://yoursite.com/2020/07/25/%E7%A7%81%E6%9C%89NPM/index.html">
 <meta property="og:site_name" content="Zed的博客">
+<meta property="og:description" content="1、私有Npm方法npm官网：官网链接  Npm付费服务 Sinopia:地址 （不再维护） Verdaccio:地址  (基于Sinopia) cnpm: 地址  2、本文选择Verdaccio前期准备1、node版本应当 10.x 及以上  Node版本4.5.0之后，js v10现在是最小支持版本，如果您不能升级Node.js v8.请继续使用v4.4.4">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723072112.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723070438.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224016.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224151.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224439.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063705.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063746.png">
+<meta property="article:published_time" content="2020-07-24T23:05:00.000Z">
+<meta property="article:modified_time" content="2020-07-24T23:08:51.214Z">
 <meta property="article:author" content="Zed Chen">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="程序猿">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723072112.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zed的博客" type="application/atom+xml">
   
@@ -49,13 +63,13 @@
 		  <h1 class="header-author"><a href="/">Zed Chen</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">朝九晚五，浪迹天涯</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -63,10 +77,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -79,11 +89,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/ChenAndKai" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1078410321" title="qq"><i class="icon-qq"></i></a>
-		        
-					<a class="weixin" target="_blank" href="/ck1078410321" title="weixin"><i class="icon-weixin"></i></a>
-		        
-					<a class="mail" target="_blank" href="/zed.chenkai@outlook.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="weibo" target="_blank" href="http://weibo.com/ZedChen" title="weibo"><i class="icon-weibo"></i></a>
 		        
 			</div>
 		</nav>
@@ -107,9 +113,9 @@
 			  <h1 class="header-author js-header-author">Zed Chen</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>朝九晚五，浪迹天涯<i class="icon icon-quo-right"></i></p>
 			
 			
-				
 			
 				
 			
@@ -120,11 +126,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/ChenAndKai" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/1078410321" title="qq"><i class="icon-qq"></i></a>
-			        
-						<a class="weixin" target="_blank" href="/ck1078410321" title="weixin"><i class="icon-weixin"></i></a>
-			        
-						<a class="mail" target="_blank" href="/zed.chenkai@outlook.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="weibo" target="_blank" href="http://weibo.com/ZedChen" title="weibo"><i class="icon-weibo"></i></a>
 			        
 				</div>
 			</nav>
@@ -133,9 +135,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -150,103 +150,264 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-私有NPM" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      私有NPM
+    </h1>
+  
+
+        
+        <a href="/2020/07/25/%E7%A7%81%E6%9C%89NPM/" class="archive-article-date">
+  	<time datetime="2020-07-24T23:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1、私有Npm方法"><a href="#1、私有Npm方法" class="headerlink" title="1、私有Npm方法"></a>1、私有Npm方法</h5><p>npm官网：<a href="https://www.npmjs.com" target="_blank" rel="noopener">官网链接</a></p>
+<ul>
+<li>Npm付费服务</li>
+<li>Sinopia:<a href="https://github.com/rlidwka/sinopia" target="_blank" rel="noopener">地址</a> （不再维护）</li>
+<li>Verdaccio:<a href="https://verdaccio.org/" target="_blank" rel="noopener">地址</a>  (基于Sinopia)</li>
+<li>cnpm: <a href="https://cnpmjs.org/" target="_blank" rel="noopener">地址</a></li>
+</ul>
+<h5 id="2、本文选择Verdaccio"><a href="#2、本文选择Verdaccio" class="headerlink" title="2、本文选择Verdaccio"></a>2、本文选择Verdaccio</h5><h6 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h6><p>1、node版本应当 <strong>10.x</strong> 及以上</p>
+<blockquote>
+<p><strong>Node版本4.5.0之后，js v10现在是最小支持版本，如果您不能升级Node.js v8.请继续使用v4.4.4</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>2、npm &gt;= 5 或者 pnpm 或者 yarn</p>
+<blockquote>
+<p><strong>官方强烈推荐使用最新的节点包管理器客服端   &gt;<a href="mailto:npm@6.x">npm@6.x</a> | <a href="mailto:yarn@1.x">yarn@1.x</a> | <a href="mailto:pnpm@4.x">pnpm@4.x</a></strong></p>
+</blockquote>
+<p>3、web界面支持 Chrome、Firefox、Edge和IE11浏览器</p>
+<blockquote>
+<p><strong>Verdaccio将根据节点支持最新的Node.js版本</strong></p>
+</blockquote>
+<h6 id="安装CLI"><a href="#安装CLI" class="headerlink" title="安装CLI"></a>安装CLI</h6><p>Verdaccio必须使用以下任何一种方法在全局安装：</p>
+<blockquote>
+<p><strong><code>npm install -g verdaccio</code></strong></p>
+</blockquote>
+<p>or using <strong>yarn</strong></p>
+<blockquote>
+<p><strong><code>yarn global add verdaccio</code></strong></p>
+</blockquote>
+<h6 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h6><ul>
+<li>安装成功后，只需执行CLI命令      <strong><code>verdaccio</code></strong><blockquote>
+<p><strong>若此时提示verdaccioc不是外部命令，则需要配置环境变量，</strong><br><strong>我用的是yarn安装，故在yarn的安装目录下找到verdaccio,并将verdaccio的bin目录添加在path里</strong></p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723072112.jpg" alt=""></p>
+<ul>
+<li><p>安装成功<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723070438.jpg" alt=""></p>
+</li>
+<li><p>配置<br>若只想将包发布到私有，则可以修改下面的 <strong>verdaccio\config.yaml</strong>中的    ‘@*/*‘    ,可以将 * 改成公司名 (修改配置文件，需要再次运行verdaccio)</p>
+<blockquote>
+<p><strong>packages:</strong><br><strong>‘@*/*‘:</strong></p>
+</blockquote>
+</li>
+<li><p>安装nrm</p>
+<blockquote>
+<p><code>npm i -g nrm</code></p>
+</blockquote>
+</li>
+<li><p><strong><code>nrm ls</code></strong> 查看源列表</p>
+</li>
+<li><p><strong><code>nrm add</code></strong> 源名称 源地址<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224016.png" alt=""></p>
+</li>
+<li><p>添加成功后，再次执行<strong><code>nrm ls</code></strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224151.png" alt=""></p>
+</li>
+<li><p>登录  在这之前一定要保证此时的npm源指向我们的私有仓库 使用nrm即可完成切换<br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200723224439.png" alt=""></p>
+</li>
+<li><p>添加用户</p>
+<blockquote>
+<p><strong><code>npm addUser （npm adduser --registry==http://IP:port）</code></strong></p>
+</blockquote>
+</li>
+<li><p>发布包</p>
+<blockquote>
+<p><strong><code>npm publish</code></strong></p>
+</blockquote>
+</li>
+</ul>
+<p><strong>pm2是node进程管理工具，可以用它来简化很多node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。关于pm2的内容这里不做过多介绍，大家可以去官网或者其他博客查看了解，后文会附上pm2的常用命令。</strong></p>
+<ul>
+<li>安装pm2</li>
+</ul>
+<p><strong><code>npm i -g pm2</code></strong></p>
+<ul>
+<li><p><strong><code>pm2 list</code></strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063705.png" alt=""></p>
+</li>
+<li><p><strong><code>pm2 start verdaccio</code></strong><br><img src="https://raw.githubusercontent.com/ChenAndKai/image/master/images/20200724063746.png" alt=""></p>
+</li>
+<li><p>pm2常用命令</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ npm install pm2 -g    # 命令行安装 pm2</span><br><span class="line"></span><br><span class="line">$ pm2 <span class="built_in">start</span> app.js -i <span class="number">4</span>  # 后台运行pm2，启动<span class="number">4</span>个app.js</span><br><span class="line"></span><br><span class="line">    # 也可以把'max' 参数传递给 <span class="built_in">start</span></span><br><span class="line"></span><br><span class="line">    # 正确的进程数目依赖于Cpu的核心数目</span><br><span class="line"></span><br><span class="line">$ pm2 <span class="built_in">start</span> app.js --name my-api # 命名进程</span><br><span class="line"></span><br><span class="line">$ pm2 list              # 显示所有进程状态</span><br><span class="line"></span><br><span class="line">$ pm2 monit              # 监视所有进程</span><br><span class="line"></span><br><span class="line">$ pm2 logs              # 显示所有进程日志</span><br><span class="line"></span><br><span class="line">$ pm2 stop all          # 停止所有进程</span><br><span class="line"></span><br><span class="line">$ pm2 restart all        # 重启所有进程</span><br><span class="line"></span><br><span class="line">$ pm2 reload all        # <span class="number">0</span> 秒停机重载进程 (用于 NETWORKED 进程)</span><br><span class="line"></span><br><span class="line">$ pm2 stop <span class="number">0</span>            # 停止指定的进程</span><br><span class="line"></span><br><span class="line">$ pm2 restart <span class="number">0</span>          # 重启指定的进程</span><br><span class="line"></span><br><span class="line">$ pm2 startup            # 产生 init 脚本 保持进程活着</span><br><span class="line"></span><br><span class="line">$ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:<span class="number">9615</span>)</span><br><span class="line"></span><br><span class="line">$ pm2 delete <span class="number">0</span>          # 杀死指定的进程</span><br><span class="line"></span><br><span class="line">$ pm2 delete all        # 杀死全部进程</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/29/%E6%AD%A3%E5%88%99%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-06-29T14:41:25.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/29/%E6%AD%A3%E5%88%99%E5%AD%A6%E4%B9%A0/">正则学习</a>
-    </h1>
-  
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序猿</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/25/%E7%A7%81%E6%9C%89NPM/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/W3C%E6%A0%87%E5%87%86/" class="archive-article-date">
-  	<time datetime="2020-06-28T15:41:18.276Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/25/webpack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/W3C%E6%A0%87%E5%87%86/">W3C标准</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-06-28T15:40:09.518Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">利用hexo搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +430,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -300,25 +461,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -337,6 +490,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">开发者</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序猿</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -382,15 +555,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
-    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Zed，&lt;br&gt;愿我们能耐得住寂寞，经得起流年&lt;br&gt;既能朝九晚五，又能浪迹天涯&lt;br&gt;成为最后的那个侠</div>
   	  	
     	</section>
     
