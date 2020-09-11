@@ -31,6 +31,8 @@
 <meta property="article:tag" content="css3">
 <meta property="article:tag" content="用户体验，git">
 <meta property="article:tag" content="正则">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zed的博客" type="application/atom+xml">
@@ -154,6 +156,124 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/11/Vue/"> Vue学习记录</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/11/Vue/" class="archive-article-date">
+  	<time datetime="2020-09-10T22:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h5 id="Vue脚手架"><a href="#Vue脚手架" class="headerlink" title="Vue脚手架"></a>Vue脚手架</h5><ul>
+<li>全局安装 @vue/cli    <strong>npm i @vue.cli</strong></li>
+<li>vue -v 查看版本号</li>
+<li>vue create  项目名</li>
+</ul>
+<h5 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'name'</span>,&#123;</span><br><span class="line">    <span class="keyword">get</span>()&#123;</span><br><span class="line">        <span class="comment">//当name被调用的时候 会触发这个get,调用时 获取到的值是这个函数的返回值</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'get'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">666</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>(val)&#123;</span><br><span class="line">        <span class="comment">//当name属性被赋值的时候 会触发这个set val对应的就是给name的赋值</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'set'</span>,val)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//Proxy  不用挨个属性进行劫持</span></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    name:<span class="number">123</span>,</span><br><span class="line">    age:<span class="number">456</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tempObj2 = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj2,&#123;</span><br><span class="line">    <span class="keyword">get</span>(target,key)&#123;</span><br><span class="line">        <span class="comment">//target 就是Obj2</span></span><br><span class="line">        <span class="comment">//key 就是我们调用的对应的属性的名字</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'get'</span>,<span class="built_in">arguments</span>)</span><br><span class="line">        <span class="keyword">return</span> target[key]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>(target,key,val)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'set'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h6 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h6><p>1、v-model = xxx   主要用在表单元素上，或者自定义组件上<br>2、v-text = xxx        v-text优势，不会显示出小胡子; 在初始渲染的时候，有可能会让用户看到小胡子，v-text等同于  innerText<br>3、v-html = xxx       innerHTML,永不用在用户提交的内容上<br>4、自定义指令（自定义指令对应的回调函数中的this，不是当前实例）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">  v-permission</span><br><span class="line">&lt;button v-permission&#x3D;&#39;10&#39;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">&#x2F;&#x2F;全局自定义</span><br><span class="line">  Vue.directive(&#39;permission&#39;,&#123;</span><br><span class="line">    inserted(el,obj)&#123;</span><br><span class="line">      if(obj.value&lt;&#x3D;5)&#123;</span><br><span class="line">          el.parentNode&amp;&amp;el.parentNode.removeChild(el)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#x2F;&#x2F;局部自定义</span><br><span class="line">  let vm &#x3D; new Vue(&#123;</span><br><span class="line">    el:&#39;#app&#39;,</span><br><span class="line">    directives:&#123;</span><br><span class="line">      color(el,obj)&#123;</span><br><span class="line">        el.style.color &#x3D; &#39;blue&#39;</span><br><span class="line">      &#125;</span><br><span class="line">      color(el,obj)&#123;</span><br><span class="line">        bind(el,obj)&#123;</span><br><span class="line">          el.style.color &#x3D; &#39;blue&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="3、数组的双向数据绑定"><a href="#3、数组的双向数据绑定" class="headerlink" title="3、数组的双向数据绑定"></a>3、数组的双向数据绑定</h6><p>vue的双向数据绑定：数据一定需要是被劫持的数据<br>①  vm.$set(目标对象，添加的属性名，属性值)<br>②  vm.obj = Object.assign({},vm.obj)<br>数组能触发视图更新的 只有  push pop unshift shift sort splice reverse</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;数据保存</span><br><span class="line">  localStorage.setItem(&#39;myary&#39;,JSON.stringify(this.ary))</span><br><span class="line">  let t &#x3D; localStorage.getItem(&#39;myary&#39;) || &#39;[]&#39;</span><br><span class="line">  t &#x3D; JSON.parse(t)</span><br></pre></td></tr></table></figure>
+<h6 id="4、过滤器"><a href="#4、过滤器" class="headerlink" title="4、过滤器"></a>4、过滤器</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*过滤器 和 自定义指令这两类对应的函数中的this都不是当前实例*&#x2F;</span><br><span class="line">&#x2F;&#x2F;全局过滤器</span><br><span class="line">&#123;&#123;money | toFix&#125;&#125;</span><br><span class="line">Vue.filter(&#39;toFix&#39;,function(val)&#123;</span><br><span class="line">    &#x2F;&#x2F;val 对应的就是管道符(|)前边的值</span><br><span class="line">    &#x2F;&#x2F;val后面的实参对应的就是使用时在小括号中的写的参数</span><br><span class="line">    console.log(arguments)</span><br><span class="line">    return (val&#x2F;100).toFixed(2) </span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;局部过滤器</span><br><span class="line">let vm &#x3D; new Vue(&#123;</span><br><span class="line">    el:&#39;#app&#39;,</span><br><span class="line">    filters:&#123;</span><br><span class="line">        toFix(val) &#123;</span><br><span class="line">            return val</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h6 id="5、计算属性和监听器"><a href="#5、计算属性和监听器" class="headerlink" title="5、计算属性和监听器"></a>5、计算属性和监听器</h6><p>methods 或者 过滤器：在DOM更新的时候都会执行，但是 computed 只会在依赖更新的时候才会执行，计算属性的缓存值就是上一次计算的结果，<br>当发现某些要写的变量存在依赖关系的时候，应当使用计算属性<br>computed data methods props 这四个中的属性，最终都会被挂载到当前的实例上，名字不能重复<br>依赖：在同步函数中使用了当前实例的哪些属性，那么 这个计算属性就是依赖哪些属性，只要依赖发生改变，这个函数就会执行</p>
+<p>监听的属性，都是已经存在的属性，只要监听的属性发生了改变，就会执行，不论同异步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在 Google 上搜索，或者输入一个网址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">name:&#123;</span><br><span class="line">    handler(newV,oldV)&#123;</span><br><span class="line">        console.log(newV,oldV)</span><br><span class="line">    &#125;,</span><br><span class="line">    immediate:true,&#x2F;&#x2F;第一次渲染的时候就执行一次，默认false</span><br><span class="line">    deep:true,&#x2F;&#x2F;深度监听，深度监听的时候，newV &#x3D;&#x3D;&#x3D; oldV</span><br><span class="line">&#125;，</span><br></pre></td></tr></table></figure>
+<p>计算属性和监听器的区别<br>1、计算属性有缓存，写法方便，有依赖可以写在一起；监听器依赖多少，就需要分别监听每一个依赖<br>2、计算属性不支持异步</p>
+<h6 id="6、-nextTick"><a href="#6、-nextTick" class="headerlink" title="6、$nextTick"></a>6、$nextTick</h6><blockquote>
+<p>this.$nextTick(()=&gt;{}) //等待DOM更新完成之后再去触发这里的回调函数<br>nextTick执行传递了一个huidiao函数；nextTick源码把传进来的函数放到了一个callbacks数组中(其实就是一个事件池)，源码中的添加完成之后，根据pending这个变量，执行timerFunc函数，并且把pending变成了true；这样在多次同步使用nextTick时，就不会再去执行timerfunc(函数里做了一个异步操作，就是让flushCallbacks异步执行)，异步执行是为了能够在多次同步执行nextTick时，先把回调函数放到事件池中，等同步执行完成之后，再去执行异步的flushCallbacks(把事件池中的所有回调函数挨个执行)</p>
+</blockquote>
+<h6 id="7、DOM-diff"><a href="#7、DOM-diff" class="headerlink" title="7、DOM diff"></a>7、DOM diff</h6><blockquote>
+<p>当数据发生改变，对应的set方法会执行，调用数据的Dep.notify通知所有的订阅者，订阅者就会通过patch函数比较，从而给真实DOM打补丁，更新相应的视图<br>diff算法只做同级比较，不会跨级比较<br>数据更改触发set函数<br>⬇<br>执行对应的Dep.notify函数<br>⬇<br>通过patch对比新旧虚拟节点<br>⬇<br>判断两个节点是否一样  ➡ (no) 用新的虚拟节点整个替换老节点<br>⬇yes<br>根据子节点情况，接着比较，分为4种情况 patchVnode<br>⬇ 老节点有子节点，新节点没有         删除老节点上的子节点<br>⬇老节点没有子节点，新节点有         append新节点上的子节点到老节点<br>⬇都只有文本节点                             新节点替换文本节点<br>⬇都有子节点</p>
+</blockquote>
+<p><strong>patchVnode</strong></p>
+<ul>
+<li>新旧虚拟DOM若是同一个地址，则无操作</li>
+<li>找到当前节点对应的真实DOM elm  获取老节点的子节点和新节点的子节点</li>
+<li>判断新节点的文本节点是否是undefined<ul>
+<li>是<ul>
+<li>比较新旧节点是否都存在，如果都存在但是不一样： 对子节点进行diff操作，调用updateChildren方法更新</li>
+<li>新节点有子节点，老节点但没有：                            先清空elm的文本内容，调用addVnodes将新节点的子节点添加到 elm 中</li>
+<li>新节点没有子节点 老节点有：                                  调用removeVnodes移除老节点中的子节点</li>
+<li>老节点的文本节点存在：                                         调用setTextContent把老节点对应元素elm的文本设置为空，若新节点文本不为空，调用setTextContent把元素elm中的文本设置为新内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="8、组件"><a href="#8、组件" class="headerlink" title="8、组件"></a>8、组件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*全局组件*&#x2F;</span><br><span class="line">Vue.component(&#39;comp&#39;,&#123;</span><br><span class="line">    &#x2F;&#x2F;配置项</span><br><span class="line">    template:&quot;&lt;h1&gt;&#123;&#123;name&#125;&#125;&lt;&#x2F;h1&gt;&quot;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        &#x2F;&#x2F;组件中的data必须是一个函数 返回一个对象,为了保证数据的独立性</span><br><span class="line">        return &#123;</span><br><span class="line">            name:&quot;珠峰“</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;main.js</span><br><span class="line">Vue.component(&#39;qqq&#39;,&#123;</span><br><span class="line">    &#x2F;&#x2F;h(标签名，行内属性，数组或者字符串)多个子节点的时候用数组</span><br><span class="line">    &#x2F;&#x2F;render:h&#x3D;&gt;h(&#39;i&#39;,&quot;hahaha&quot;)</span><br><span class="line">    &#x2F;&#x2F;&lt;div&gt;哈哈&lt;span&gt;咯咯&lt;&#x2F;span&gt;&lt;i&gt;呵呵&lt;&#x2F;i&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    render:h&#x3D;&gt;h(&#39;div&#39;,&#123;</span><br><span class="line">        class:&#39;qqq&#39;,</span><br><span class="line">        style:&#123;color:&#39;red&#39;&#125;</span><br><span class="line">    &#125;,[&#39;哈哈&#39;,h(&#39;span&#39;,&#39;咯咯&#39;),h(&#39;i&#39;,&#39;呵呵&#39;)])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">开发者</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/11/Vue/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-私有NPM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -532,10 +652,52 @@
 </li>
 <li><p>3、安装hexo</p>
 <ul>
-<li><strong>cnpm install -g hexo-cli</strong>  （同样可以用hexo -v查看是否安装成功)
-        
-          <a class="article-more-a" href="/2020/05/25/%E5%88%A9%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more">more >></a>
-        
+<li><strong>cnpm install -g hexo-cli</strong>  （同样可以用hexo -v查看是否安装成功)</li>
+</ul>
+</li>
+<li><p>4、选择一个目录创建文件夹(mkdir blog)并进入(cd blog)</p>
+</li>
+<li><p>5、windows环境下，用 <strong>hexo init</strong> 初始化（首先进入管理员环境，可以安装git,然后在要初始化的文件夹下，右键git bash,然后在命令行下操作）</p>
+</li>
+<li><p>6、<strong>hexo s</strong>：启动</p>
+</li>
+<li><p>7、新建一篇博客</p>
+<ul>
+<li><strong>hexo n “我的第一篇博客文章”</strong>，新创建的md格式的文件在 source-&gt;_posts下</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>8、<strong>hexo clean</strong>: 清除缓存文件和已生成的静态文件</li>
+<li>9、<strong>hexo g</strong>：重新生成文件</li>
+</ul>
+<h4 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h4><ul>
+<li><p>1、新建一个仓库，仓库名必须是     你的github名.github.io</p>
+</li>
+<li><p>2、在一开始创建的blog目录下安装github的一个插件</p>
+<ul>
+<li><strong>cnpm install –save hexo-deployer-git</strong></li>
+</ul>
+</li>
+<li><p>3、找到blog目录下的_config.yml文件，编辑该文件，找到文件下的 <strong>deploy:</strong></p>
+<p>  然后添加以下内容（<font color=red><strong>注意：以下三条每个冒号后面都是需要加空格，否则下一步会报错</strong></font>）<br>  **type: git</p>
+<pre><code>repo: https://github.com/ChenAndKai/ChenAndKai.github.io.git   这里是你在github上创建的仓库名
+branch: master**</code></pre></li>
+<li><p>4、<strong>hexo d</strong> ：部署到远端,此时会要求输入github的账号和密码</p>
+</li>
+</ul>
+<h4 id="更新博客文章"><a href="#更新博客文章" class="headerlink" title="更新博客文章"></a>更新博客文章</h4><ul>
+<li>1、将md文件放在 <strong>项目/source/_posts</strong></li>
+<li>2、hexo clean</li>
+<li>3、hexo g</li>
+<li>4、hexo d</li>
+</ul>
+<h4 id="更换博客主题"><a href="#更换博客主题" class="headerlink" title="更换博客主题"></a>更换博客主题</h4><ul>
+<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">我的博客主题下载地址</a></li>
+<li>1、下载主题 git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</li>
+<li>2、修改_config.yml文件，找到  <strong>theme: landscape</strong>，修改为下载的主题的文件夹  <strong>theme: yilia</strong></li>
+</ul>
+
       
 
       
@@ -681,15 +843,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">开发者</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">开发者</a>
               </li>
              
               <li class="article-tag-list-item">
