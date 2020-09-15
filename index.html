@@ -19,20 +19,15 @@
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="html5">
-<meta property="article:tag" content="开发者">
-<meta property="article:tag" content="程序猿">
-<meta property="article:tag" content="编程">
-<meta property="article:tag" content="代码">
 <meta property="article:tag" content="开源">
 <meta property="article:tag" content="IT网站">
-<meta property="article:tag" content="Developer">
-<meta property="article:tag" content="Programmer">
-<meta property="article:tag" content="Coder">
 <meta property="article:tag" content="css3">
-<meta property="article:tag" content="用户体验，git">
+<meta property="article:tag" content="用户体验">
+<meta property="article:tag" content="git">
 <meta property="article:tag" content="正则">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="React">
+<meta property="article:tag" content="小程序">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zed的博客" type="application/atom+xml">
@@ -156,6 +151,89 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-微信小程序常用授权汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E6%8E%88%E6%9D%83%E6%B1%87%E6%80%BB/"> 微信小程序常用授权汇总</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E6%8E%88%E6%9D%83%E6%B1%87%E6%80%BB/" class="archive-article-date">
+  	<time datetime="2020-09-10T22:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="用户信息授权登录"><a href="#用户信息授权登录" class="headerlink" title="用户信息授权登录"></a>用户信息授权登录</h4><ul>
+<li>调用uni.login()获取 临时登录凭证code,并传到开发者服务器,每个code只能用一次</li>
+<li>调用uni.getUserInfo()获取用户信息(encryptedData：包括敏感数据在内的完整用户信息的加密数据，iv：加密算法的初始向量)</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> ajax <span class="keyword">from</span> <span class="string">'../api/ajax.js'</span></span><br><span class="line"><span class="keyword">import</span> url <span class="keyword">from</span> <span class="string">'../api/url.js'</span></span><br><span class="line"><span class="keyword">import</span> storageKey <span class="keyword">from</span> <span class="string">'./storageKeyUtil.js'</span><span class="comment">//存放本地缓存数据的键名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> appletUserInfoGet = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		uni.login(&#123;</span><br><span class="line">			provider: <span class="string">"weixin"</span>,</span><br><span class="line">			success: <span class="function"><span class="params">loginRes</span> =&gt;</span> &#123;</span><br><span class="line">				<span class="keyword">let</span> code = loginRes.code</span><br><span class="line">				uni.getUserInfo(&#123;</span><br><span class="line">					provider: <span class="string">"weixin"</span>,</span><br><span class="line">					success: <span class="function"><span class="params">infoRes</span> =&gt;</span> &#123;</span><br><span class="line">						ajax(url.authorization, &#123;</span><br><span class="line">								code,</span><br><span class="line">								iv: infoRes.iv,</span><br><span class="line">								encrypted_data: infoRes.encryptedData,</span><br><span class="line">								oauth_type: <span class="string">"USER_APPLET"</span>,</span><br><span class="line">								is_check_unionid:<span class="number">0</span></span><br><span class="line">							&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">              	<span class="comment">//获得后台解密之后获得的用户信息，并保存</span></span><br><span class="line">								uni.setStorageSync(storageKey.USER_INFO, res.data);</span><br><span class="line">								resolve(res.data);</span><br><span class="line">							&#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">								reject(err);</span><br><span class="line">							&#125;);</span><br><span class="line">					&#125;,</span><br><span class="line">					fail(err) &#123;</span><br><span class="line">						reject(err);</span><br><span class="line">					&#125;,</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;,</span><br><span class="line">			fail(err) &#123;</span><br><span class="line">				reject(err);</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//微信登录（wechat_account_uuid，上一个方法获取的微信唯一uuid）</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> wechatLogin = <span class="function">(<span class="params">wechat_account_uuid</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//注册登录接口，wechat_account_uuid必须，其他传参按照接口需要提供</span></span><br><span class="line">		ajax(url.userLogin, &#123;</span><br><span class="line">				wechat_account_uuid</span><br><span class="line">			&#125;)</span><br><span class="line">			.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="comment">//将用户信息和token信息保存到本地</span></span><br><span class="line">				<span class="keyword">const</span> token_info = res.token_info || &#123;&#125;;</span><br><span class="line">				<span class="keyword">const</span> user_info = res.data || &#123;&#125;</span><br><span class="line">				uni.setStorageSync(storageKey.USER_INFO,user_info)</span><br><span class="line">				uni.setStorageSync(storageKey.TOKEN_INFO, token_info);</span><br><span class="line">				resolve(res);</span><br><span class="line">			&#125;)</span><br><span class="line">			.catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">				reject(err);</span><br><span class="line">			&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/09/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E6%8E%88%E6%9D%83%E6%B1%87%E6%80%BB/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E6%8E%88%E6%9D%83%E6%B1%87%E6%80%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -814,15 +892,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">开发者</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
